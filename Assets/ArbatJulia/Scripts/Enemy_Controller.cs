@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -39,7 +38,7 @@ public class Enemy_Controller : MonoBehaviour
     private void Enemy_Movement()
     {
         // Lógica para posición de enemigo y target a distancia (fuera del angulo de vista)
-        if(Vector3.Distance(transform.position, target.transform.position) > 5);
+        if(Vector3.Distance(transform.position, target.transform.position) > 5)
         {
             // Lógica para cancelar la acción de correr
             anim.SetBool("iswalking", false);

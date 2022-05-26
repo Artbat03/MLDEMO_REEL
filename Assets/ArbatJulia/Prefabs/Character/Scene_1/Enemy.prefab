@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6229880116567783468}
     m_Modifications:
+    - target: {fileID: 4334848392774774496, guid: 52ba484a75d67084e9860a243992f706, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 6280389464252418118, guid: 52ba484a75d67084e9860a243992f706, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -85,6 +89,14 @@ PrefabInstance:
     - target: {fileID: 6657371785047003900, guid: 52ba484a75d67084e9860a243992f706, type: 3}
       propertyPath: m_Name
       value: Cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657371785047003900, guid: 52ba484a75d67084e9860a243992f706, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055861387778178103, guid: 52ba484a75d67084e9860a243992f706, type: 3}
+      propertyPath: grade
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8055861387778178103, guid: 52ba484a75d67084e9860a243992f706, type: 3}
       propertyPath: target

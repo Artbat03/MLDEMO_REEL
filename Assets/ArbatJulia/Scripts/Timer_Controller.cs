@@ -15,14 +15,6 @@ public class Timer_Controller : MonoBehaviour
 
     [SerializeField] private Text timer_Text;
 
-    private Game_Control gameControl;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameControl = FindObjectOfType<Game_Control>();
-    }
-
     // Logica para comenzar la cuenta atras
     public void startTimer()
     {
@@ -46,7 +38,7 @@ public class Timer_Controller : MonoBehaviour
         {
             if (m == 0)
             {
-                gameControl.endGame();
+                GameManager.instance.endGame();
                 return;
             }
 

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,8 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] private int score_Counter;
-
-    private Level_Controller _levelController;
     
     [SerializeField] private GameObject startCamera;
     [SerializeField] private GameObject gameCamera;
@@ -27,8 +22,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-
-            _levelController = GameObject.FindGameObjectWithTag("Level_Controller").GetComponent<Level_Controller>();
         }
 
         else
@@ -37,6 +30,7 @@ public class GameManager : MonoBehaviour
         }
         
         timer = FindObjectOfType<Timer_Controller>();
+        score_txt = GameObject.FindGameObjectWithTag("score_txt");
     }
 
     private void Update()
@@ -66,8 +60,16 @@ public class GameManager : MonoBehaviour
     public void restartDefaultScore()
     {
         score_Counter = 0;
-        _levelController.UpdateScoreUI();
+        UpdateScoreUI();
 
+    }
+    
+    // Metodo de actualizacion de la Score en la UI
+    public void UpdateScoreUI()
+    {
+        // Recuperacion de la Score guardada en el Game_Manager
+        int score = GetScoreGame();
+        score_txt.GetComponent<Text>().text = "Score: " + score;
     }
 
     public void Restart()
@@ -90,6 +92,12 @@ public class GameManager : MonoBehaviour
                 transform.Rotate(0, 90, 0);
             }
         }
+    }
+    
+    // Metodo que carga otra escena
+    public void NextLevel(string nameNextScene)
+    {
+        SceneManager.LoadScene(nameNextScene);
     }
     
     public void startGame()

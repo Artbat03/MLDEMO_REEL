@@ -7,12 +7,12 @@ TagManager:
   - Enemy
   - PickUp
   - Level_Controller
-  - level_txt
   - score_txt
   - MultiplyScore_PowerUp
   - Win
   - GameManager
   - ThrowEnemy_PowerUp
+  - DestroyEnemies_PowerUp
   layers:
   - Default
   - TransparentFX
