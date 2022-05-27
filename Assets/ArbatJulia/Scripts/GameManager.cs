@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
         restartScore(0);        
         
         Time.timeScale = 0;
+        
+        startCamera = GameObject.FindGameObjectWithTag("StartCamera");
+        gameCamera = GameObject.FindGameObjectWithTag("GameCamera");
+        gameCamera.SetActive(false);
     }
 
     private void Start()
@@ -104,7 +108,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f;
-        
+
         // Logica mientras estamos jugando
         startCamera.SetActive(false);
         gameCamera.SetActive(true);
@@ -116,6 +120,8 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        Time.timeScale = 0f;
+
         // Logica mientras estamos en el menu principal
         startCamera.SetActive(true);
         gameCamera.SetActive(false);
@@ -123,5 +129,7 @@ public class GameManager : MonoBehaviour
         gameUI.SetActive(false);
         cheeseimg.SetActive(false);
         restartScore(0);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

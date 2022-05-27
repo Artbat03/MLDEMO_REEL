@@ -21,7 +21,7 @@ public class Timer_Controller : MonoBehaviour
     {
         instancetimer = this;
     }
-
+   
     // Logica para comenzar la cuenta atras
     public void StartTimer()
     {

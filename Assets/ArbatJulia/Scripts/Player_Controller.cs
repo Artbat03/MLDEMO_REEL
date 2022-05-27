@@ -12,10 +12,13 @@ public class Player_Controller : MonoBehaviour
 {
 
     // Variables
-    private float speed = 5.0f;
+    [Range(1,100)]
+    [SerializeField] private float speed = 5.0f;
     private float rotationSpeed = 200.0f;
     private Animator anim;
 
+    private Rigidbody rb;
+    
     private float x, y;
 
     // impowerup es para el power up de multiply score
@@ -29,6 +32,7 @@ public class Player_Controller : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -48,7 +52,9 @@ public class Player_Controller : MonoBehaviour
         anim.SetFloat("Speed_Y", y);
 
         // Movimiento player
-        transform.Translate(0, 0, y * Time.deltaTime * speed);
+        //transform.Translate(0, 0, y * Time.deltaTime * speed);
+        
+        rb.AddRelativeForce (Vector3.forward.normalized * y * speed);
 
         // Rotaci�n player
         transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
