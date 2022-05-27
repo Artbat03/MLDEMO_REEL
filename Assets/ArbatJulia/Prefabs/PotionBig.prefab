@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8899091516019199112}
   - component: {fileID: 2212185294454384391}
   - component: {fileID: 3929321006124687061}
-  - component: {fileID: -8209400599414736954}
   - component: {fileID: -7511072606921621980}
   m_Layer: 0
   m_Name: PotionBig
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8209400599414736954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547151441785877480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d25ef28665b794e9379d8038e72c1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplyScore_PowerUp: {fileID: 547151441785877480}
-  score: 10
 --- !u!65 &-7511072606921621980
 BoxCollider:
   m_ObjectHideFlags: 0

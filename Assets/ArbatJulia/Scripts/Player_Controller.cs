@@ -68,7 +68,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && ihavepowerup)
         {
-            // L�gica si estoy con el powerUp
+            // Logica si estoy con el powerUp
             Rigidbody rbEnemy = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 throwEnemy = (collision.gameObject.transform.position - transform.position);
             rbEnemy.AddForce(throwEnemy * PowerUpforce, ForceMode.Impulse);
@@ -77,7 +77,7 @@ public class Player_Controller : MonoBehaviour
         }
         else
         {
-            // L�gica muerte del player
+            // Logica muerte del player
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 anim.SetBool("isdead", true);
@@ -92,7 +92,7 @@ public class Player_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("MouseLabrynth_1");
-        GameManager.instance.restartDefaultScore();
+        GameManager.instance.restartScore(0);
     }
 
     // Coroutine para el effecto del PowerUp

@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Win_Logic : MonoBehaviour
-{
-    public Text victory;
+{ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -18,8 +15,6 @@ public class Win_Logic : MonoBehaviour
             
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_2")
             {
-                //victory.text = GameObject.FindGameObjectWithTag("Victorytxt").GetComponent<Text>();
-                victory.gameObject.SetActive(true);
                 StartCoroutine(YouWinAfter3SecondsMenu());
             }
         }
@@ -29,7 +24,8 @@ public class Win_Logic : MonoBehaviour
     IEnumerator YouWinAfter3SecondsMenu()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("MouseLabrynth_1");
-        GameManager.instance.restartDefaultScore();
+        GameManager.instance.NextLevel("MouseLabrynth_Win");
+        GameManager.instance.restartScore(0);
+        Timer_Controller.instancetimer.StopTimer();
     }
 }

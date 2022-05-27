@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,9 @@ using UnityEngine.UI;
 
 public class Timer_Controller : MonoBehaviour
 {
-
-    // Variables y campos a usar
+    // Variables
+    public static Timer_Controller instancetimer;
+    
     [SerializeField] private int minutes;
 
     [SerializeField] private int seconds;
@@ -15,30 +17,35 @@ public class Timer_Controller : MonoBehaviour
 
     [SerializeField] private Text timer_Text;
 
+    private void Awake()
+    {
+        instancetimer = this;
+    }
+
     // Logica para comenzar la cuenta atras
-    public void startTimer()
+    public void StartTimer()
     {
         m = minutes;
         s = seconds;
-        writeTimer(m, s);
-        Invoke("updateTimer", 1f);
+        WriteTimer(m, s);
+        Invoke("UpdateTimer", 1f);
     }
 
     // Logica para parar el contador
-    public void stopTimer()
+    public void StopTimer()
     {
         CancelInvoke();
     }
 
     // Logica para ejecucion en intervalos de 1 seg
-    private void updateTimer()
+    private void UpdateTimer()
     {
         s--;
         if (s < 0)
         {
             if (m == 0)
             {
-                GameManager.instance.endGame();
+                GameManager.instance.EndGame();
                 return;
             }
 
@@ -49,12 +56,12 @@ public class Timer_Controller : MonoBehaviour
             }
         }
 
-        writeTimer(m, s);
-        Invoke("updateTimer", 1f);
+        WriteTimer(m, s);
+        Invoke("UpdateTimer", 1f);
     }
 
     // Logica para escribir el timer
-    private void writeTimer(int m, int s)
+    private void WriteTimer(int m, int s)
     {
         if (s < 10)
         {

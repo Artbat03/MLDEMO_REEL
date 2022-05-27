@@ -24,6 +24,8 @@ public class Enemy_Controller : MonoBehaviour
         anim = GetComponent<Animator>();
 
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Controller>();
+        
+        target = GameObject.FindGameObjectWithTag("Player");
     }
     
 

@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameCamera;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject gameUI;
-    [SerializeField] private Timer_Controller timer;
     [SerializeField] private GameObject score_txt;
 
     private void Awake()
@@ -29,8 +28,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        timer = FindObjectOfType<Timer_Controller>();
         score_txt = GameObject.FindGameObjectWithTag("score_txt");
+
+        Time.timeScale = 0;
     }
 
     private void Update()
@@ -54,16 +54,9 @@ public class GameManager : MonoBehaviour
     public void restartScore(int score_Counter)
     {
         this.score_Counter = score_Counter;
-    }
-
-    // 
-    public void restartDefaultScore()
-    {
-        score_Counter = 0;
         UpdateScoreUI();
-
     }
-    
+
     // Metodo de actualizacion de la Score en la UI
     public void UpdateScoreUI()
     {
@@ -77,12 +70,12 @@ public class GameManager : MonoBehaviour
         // Logica para volver al menu principal
         if (Input.GetKeyDown(KeyCode.R))
         {
-            endGame();
+            EndGame();
             
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_1")
             {
                 SceneManager.LoadScene("MouseLabrynth_1");
-                transform.position = new Vector3(10.36f, 0, -13.6f);
+                transform.position = new Vector3(11.5f, 0, -10.5f);
             }
 
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_2")
@@ -100,24 +93,27 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(nameNextScene);
     }
     
-    public void startGame()
+    public void StartGame()
     {
+        Time.timeScale = 1f;
+        
         // Logica mientras estamos jugando
         startCamera.SetActive(false);
         gameCamera.SetActive(true);
         menuUI.SetActive(false);
         gameUI.SetActive(true);
-        timer.startTimer();
+        Timer_Controller.instancetimer.StartTimer();
         score_txt.SetActive(true);
     }
 
-    public void endGame()
+    public void EndGame()
     {
-        // Logica mientras estamos en el men� principal
+        // Logica mientras estamos en el menu principal
         startCamera.SetActive(true);
         gameCamera.SetActive(false);
         menuUI.SetActive(true);
         gameUI.SetActive(false);
         score_txt.SetActive(false);
+        restartScore(0);
     }
 }
