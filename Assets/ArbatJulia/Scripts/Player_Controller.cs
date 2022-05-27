@@ -62,6 +62,12 @@ public class Player_Controller : MonoBehaviour
             ihavepowerup = true;
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "MultiplyScore_PowerUp")
+        {
+            Destroy(other.gameObject);
+            StartCoroutine(MultiplyScoreDuring10Seconds());
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -95,12 +101,20 @@ public class Player_Controller : MonoBehaviour
         GameManager.instance.restartScore(0);
     }
 
-    // Coroutine para el effecto del PowerUp
+    // Coroutine para el effecto del PowerUp del pescado
     IEnumerator ThrowEnemyDuring10Seconds()
     {
         ihavepowerup = true;
         yield return new WaitForSeconds(10);
         ihavepowerup = false;
+    }
+    
+    // Coroutine para el effecto del PowerUp del pescado
+    IEnumerator MultiplyScoreDuring10Seconds()
+    {
+        impowerup = true;
+        yield return new WaitForSeconds(20);
+        impowerup = false;
     }
 }
 

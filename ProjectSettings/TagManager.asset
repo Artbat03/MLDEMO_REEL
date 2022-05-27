@@ -5,14 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - PickUp
-  - Level_Controller
   - score_txt
   - MultiplyScore_PowerUp
   - Win
   - GameManager
   - ThrowEnemy_PowerUp
-  - DestroyEnemies_PowerUp
   layers:
   - Default
   - TransparentFX

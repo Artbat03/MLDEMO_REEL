@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject score_txt;
+    [SerializeField] private GameObject cheeseimg;
 
     private void Awake()
     {
@@ -29,8 +31,14 @@ public class GameManager : MonoBehaviour
         }
         
         score_txt = GameObject.FindGameObjectWithTag("score_txt");
-
+        restartScore(0);        
+        
         Time.timeScale = 0;
+    }
+
+    private void Start()
+    {
+        cheeseimg.SetActive(false);
     }
 
     private void Update()
@@ -62,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         // Recuperacion de la Score guardada en el Game_Manager
         int score = GetScoreGame();
-        score_txt.GetComponent<Text>().text = "Score: " + score;
+        score_txt.GetComponent<Text>().text = "" + score;
     }
 
     public void Restart()
@@ -103,7 +111,7 @@ public class GameManager : MonoBehaviour
         menuUI.SetActive(false);
         gameUI.SetActive(true);
         Timer_Controller.instancetimer.StartTimer();
-        score_txt.SetActive(true);
+        cheeseimg.SetActive(true);
     }
 
     public void EndGame()
@@ -113,7 +121,7 @@ public class GameManager : MonoBehaviour
         gameCamera.SetActive(false);
         menuUI.SetActive(true);
         gameUI.SetActive(false);
-        score_txt.SetActive(false);
+        cheeseimg.SetActive(false);
         restartScore(0);
     }
 }
