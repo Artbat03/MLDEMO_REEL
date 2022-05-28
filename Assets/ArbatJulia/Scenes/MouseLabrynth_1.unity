@@ -249,12 +249,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196245699}
   m_LocalRotation: {x: 0.09509839, y: -0, z: -0, w: 0.9954679}
-  m_LocalPosition: {x: 0, y: 13.82, z: -29.05}
+  m_LocalPosition: {x: -960, y: -526.18, z: -29.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 337170965}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 244622697}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 10.914, y: 0, z: 0}
 --- !u!1 &236742010
 GameObject:
@@ -365,6 +365,8 @@ RectTransform:
   m_Children:
   - {fileID: 1716040596}
   - {fileID: 1547023079}
+  - {fileID: 286884840}
+  - {fileID: 196245701}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -573,13 +575,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286884837}
-  m_LocalRotation: {x: 0.2643574, y: -0.004393229, z: 0.0012042364, w: 0.96441406}
-  m_LocalPosition: {x: 11.5, y: 2, z: -12.2}
+  m_LocalRotation: {x: 0.26435745, y: -0.0043932293, z: 0.0012042368, w: 0.96441406}
+  m_LocalPosition: {x: -948.5, y: -538, z: -12.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 590859508}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 244622697}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &329634778 stripped
 Transform:
@@ -1030,36 +1032,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709183632}
   m_CullTransparentMesh: 1
---- !u!1 &721593742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4714220193723385692, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
-  m_PrefabInstance: {fileID: 1611789791}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &721593743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721593742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186ceb19230931641a47ad96446de0f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &721593744
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721593742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 119.22516, y: 35.55432, z: 119.22516}
-  m_Center: {x: -0.0032958984, y: 17.77716, z: -0.016693115}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,8 +1134,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.09509839, y: 0, z: 0, w: 0.9954679}
-  m_LocalPosition: {x: 0, y: 13.82, z: -29.05}
+  m_LocalRotation: {x: 0.26435745, y: -0.0043932293, z: 0.0012042368, w: 0.96441406}
+  m_LocalPosition: {x: 11.507281, y: 1.6127493, z: -11.29919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1308,10 +1280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1173268927984792709, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
-      propertyPath: m_TagString
-      value: ThrowEnemy_PowerUp
-      objectReference: {fileID: 0}
     - target: {fileID: 2336500182137648250, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1359,18 +1327,6 @@ PrefabInstance:
     - target: {fileID: 3109518001922338496, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
       propertyPath: m_Name
       value: Level_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4714220193723385692, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
-      propertyPath: m_TagString
-      value: Win
-      objectReference: {fileID: 0}
-    - target: {fileID: 8578023953986430276, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.904
-      objectReference: {fileID: 0}
-    - target: {fileID: 9204013101017921288, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
-      propertyPath: m_TagString
-      value: ThrowEnemy_PowerUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
