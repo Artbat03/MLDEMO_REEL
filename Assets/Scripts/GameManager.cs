@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameCamera;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject gameUI;
-    [SerializeField] private GameObject score_txt;
+    [SerializeField] private Text score_txt;
     [SerializeField] private GameObject cheeseimg;
 
     private void Awake()
@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        score_txt = GameObject.FindGameObjectWithTag("score_txt");
+        menuUI.SetActive(true);
+        gameUI.SetActive(false);
+        
         restartScore(0);        
         
         Time.timeScale = 0;
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         // Recuperacion de la Score guardada en el Game_Manager
         int score = GetScoreGame();
-        score_txt.GetComponent<Text>().text = "" + score;
+        score_txt.text = "" + score;
     }
 
     public void Restart()
@@ -82,17 +84,16 @@ public class GameManager : MonoBehaviour
         // Logica para volver al menu principal
         if (Input.GetKeyDown(KeyCode.R))
         {
-            EndGame();
             
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_1")
             {
-                SceneManager.LoadScene("MouseLabrynth_1");
+                EndGame();
                 transform.position = new Vector3(11.5f, 0, -10.5f);
             }
 
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_2")
             {
-                SceneManager.LoadScene("MouseLabrynth_2");
+                EndGame();
                 transform.position = new Vector3(-3.5f, 0, -5f);
                 transform.Rotate(0, 90, 0);
             }
@@ -131,5 +132,10 @@ public class GameManager : MonoBehaviour
         restartScore(0);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

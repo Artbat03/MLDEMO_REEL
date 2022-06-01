@@ -65,11 +65,11 @@ public class Timer_Controller : MonoBehaviour
     {
         if (s < 10)
         {
-            timer_Text.text = m + ":0" + s;
+            timer_Text.text = m.ToString("0 0") + "  :  " + s.ToString("0 0");
         }
         else
         {
-            timer_Text.text = m + ":" + s;
+            timer_Text.text = m.ToString("0 0") + "  :  " + s.ToString("0 0");
         }
     }
 }
