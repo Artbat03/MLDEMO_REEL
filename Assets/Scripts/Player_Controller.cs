@@ -103,7 +103,7 @@ public class Player_Controller : MonoBehaviour
     IEnumerator DeathAnimationAfter3Seconds()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("MouseLabrynth_1");
+        GameManager.instance.EndGame();
         GameManager.instance.restartScore(0);
     }
 

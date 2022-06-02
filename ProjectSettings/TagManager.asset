@@ -15,6 +15,7 @@ TagManager:
   - GameCamera
   - StartCamera
   - Cheese
+  - FollowCam
   layers:
   - Default
   - TransparentFX

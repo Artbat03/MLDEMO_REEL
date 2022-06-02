@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -17,25 +20,36 @@ public class Enemy_Controller : MonoBehaviour
     public GameObject target;
 
     private Player_Controller _playerController;
+    [SerializeField] private NavMeshAgent _navMeshAgent;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
 
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Controller>();
         
         target = GameObject.FindGameObjectWithTag("Player");
     }
-    
+
+
+    private void Update()
+    {
+        _navMeshAgent.SetDestination(target.transform.position);
+    }
 
     // Update is called once per frame
-    void FixedUpdate()
+    /**
+     void FixedUpdate()
     {
         Enemy_Movement();
 
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
+    */
 
     private void Enemy_Movement()
     {

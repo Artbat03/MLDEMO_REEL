@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameUI;
     [SerializeField] private Text score_txt;
     [SerializeField] private GameObject cheeseimg;
+    [SerializeField] private CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject FollowCam;
     
     public GameObject[] cheese;
 
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
         gameCamera.SetActive(false);
 
         cheese = GameObject.FindGameObjectsWithTag("Cheese");
+        
     }
 
     private void Start()
@@ -123,6 +128,9 @@ public class GameManager : MonoBehaviour
     
     public void StartGame()
     {
+        _virtualCamera.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+        _virtualCamera.LookAt = GameObject.FindGameObjectWithTag("FollowCam").transform;
+        
         Time.timeScale = 1f;
 
         // Logica mientras estamos jugando
