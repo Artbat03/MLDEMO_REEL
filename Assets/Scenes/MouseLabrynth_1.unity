@@ -680,6 +680,7 @@ MonoBehaviour:
   gameUI: {fileID: 1547023078}
   score_txt: {fileID: 1709461196}
   cheeseimg: {fileID: 236742010}
+  cheese: []
 --- !u!1 &276779228
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +801,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286884837}
-  m_LocalRotation: {x: 0.32344684, y: 0.0073988773, z: -0.0025291769, w: 0.9462141}
+  m_LocalRotation: {x: 0.32344687, y: 0.0073989155, z: -0.0025291909, w: 0.9462141}
   m_LocalPosition: {x: -948.5, y: -538, z: -11.734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1359,8 +1360,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.09509839, y: 0, z: 0, w: 0.9954679}
-  m_LocalPosition: {x: 0, y: 13.820007, z: -29.05}
+  m_LocalRotation: {x: 0.32344687, y: 0.0073989155, z: -0.0025291909, w: 0.9462141}
+  m_LocalPosition: {x: 11.484717, y: 1.8955278, z: -11.011154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2153,6 +2154,14 @@ PrefabInstance:
     - target: {fileID: 4157397939033712920, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
       propertyPath: m_Name
       value: Level_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545457500346698992, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833525274122914027, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26005a5e23efe6e44ae11034ae83c158, type: 3}

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,8 @@ public class Win_Logic : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_1")
             {
                 SceneManager.LoadScene("MouseLabrynth_2");
+                Timer_Controller.instancetimer.StartTimer();
+                GameManager.instance.cheese = GameObject.FindGameObjectsWithTag("Cheese");
             }
             
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_2")

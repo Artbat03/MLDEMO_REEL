@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameUI;
     [SerializeField] private Text score_txt;
     [SerializeField] private GameObject cheeseimg;
+    
+    public GameObject[] cheese;
 
     private void Awake()
     {
@@ -40,6 +44,8 @@ public class GameManager : MonoBehaviour
         startCamera = GameObject.FindGameObjectWithTag("StartCamera");
         gameCamera = GameObject.FindGameObjectWithTag("GameCamera");
         gameCamera.SetActive(false);
+
+        cheese = GameObject.FindGameObjectsWithTag("Cheese");
     }
 
     private void Start()
@@ -69,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         this.score_Counter = score_Counter;
         UpdateScoreUI();
+        cheese = GameObject.FindGameObjectsWithTag("Cheese");
     }
 
     // Metodo de actualizacion de la Score en la UI
@@ -89,6 +96,9 @@ public class GameManager : MonoBehaviour
             {
                 EndGame();
                 transform.position = new Vector3(11.5f, 0, -10.5f);
+                menuUI.SetActive(true);
+                gameUI.SetActive(false);
+                cheese = GameObject.FindGameObjectsWithTag("Cheese");
             }
 
             if (SceneManager.GetActiveScene().name == "MouseLabrynth_2")
@@ -96,6 +106,9 @@ public class GameManager : MonoBehaviour
                 EndGame();
                 transform.position = new Vector3(-3.5f, 0, -5f);
                 transform.Rotate(0, 90, 0);
+                menuUI.SetActive(true);
+                gameUI.SetActive(false);
+                cheese = GameObject.FindGameObjectsWithTag("Cheese");
             }
         }
     }
@@ -104,6 +117,8 @@ public class GameManager : MonoBehaviour
     public void NextLevel(string nameNextScene)
     {
         SceneManager.LoadScene(nameNextScene);
+        StartGame();
+        cheese = GameObject.FindGameObjectsWithTag("Cheese");
     }
     
     public void StartGame()
