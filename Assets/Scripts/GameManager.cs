@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject startCamera;
     [SerializeField] private GameObject gameCamera;
     [SerializeField] private GameObject menuUI;
-    [SerializeField] private GameObject gameUI;
+    public GameObject gameUI;
+    public GameObject winPanel;
     [SerializeField] private Text score_txt;
     [SerializeField] private GameObject cheeseimg;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
@@ -40,6 +38,7 @@ public class GameManager : MonoBehaviour
         
         menuUI.SetActive(true);
         gameUI.SetActive(false);
+        winPanel.SetActive(false);
         
         restartScore(0);        
         
@@ -103,6 +102,8 @@ public class GameManager : MonoBehaviour
                 transform.position = new Vector3(11.5f, 0, -10.5f);
                 menuUI.SetActive(true);
                 gameUI.SetActive(false);
+                winPanel.SetActive(false);
+
                 cheese = GameObject.FindGameObjectsWithTag("Cheese");
             }
 
@@ -111,11 +112,18 @@ public class GameManager : MonoBehaviour
                 EndGame();
                 transform.position = new Vector3(-3.5f, 0, -5f);
                 transform.Rotate(0, 90, 0);
-                menuUI.SetActive(true);
-                gameUI.SetActive(false);
+                menuUI.SetActive(false);
+                gameUI.SetActive(false);        
+                winPanel.SetActive(false);
+
                 cheese = GameObject.FindGameObjectsWithTag("Cheese");
             }
         }
+    }
+
+    public void RestartWin()
+    {
+        NextLevel("MouseLabrynth_1");
     }
     
     // Metodo que carga otra escena
@@ -138,6 +146,7 @@ public class GameManager : MonoBehaviour
         gameCamera.SetActive(true);
         menuUI.SetActive(false);
         gameUI.SetActive(true);
+        winPanel.SetActive(false);
         Timer_Controller.instancetimer.StartTimer();
         cheeseimg.SetActive(true);
     }
@@ -151,6 +160,7 @@ public class GameManager : MonoBehaviour
         gameCamera.SetActive(false);
         menuUI.SetActive(true);
         gameUI.SetActive(false);
+        winPanel.SetActive(false);
         cheeseimg.SetActive(false);
         restartScore(0);
 

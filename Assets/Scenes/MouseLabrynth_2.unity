@@ -983,7 +983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2075353331757806654, guid: fee9a2cbdc144e94e927c4377ab14b50, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135710039920277781, guid: fee9a2cbdc144e94e927c4377ab14b50, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1557,6 +1557,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6069624264852835731, guid: fee9a2cbdc144e94e927c4377ab14b50, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6103627833385267303, guid: fee9a2cbdc144e94e927c4377ab14b50, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -1975,7 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8304165082429355955, guid: fee9a2cbdc144e94e927c4377ab14b50, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8360882043793541061, guid: fee9a2cbdc144e94e927c4377ab14b50, type: 3}
       propertyPath: m_StaticEditorFlags

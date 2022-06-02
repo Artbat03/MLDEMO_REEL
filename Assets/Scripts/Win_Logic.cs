@@ -26,8 +26,10 @@ public class Win_Logic : MonoBehaviour
     IEnumerator YouWinAfter3SecondsMenu()
     {
         yield return new WaitForSeconds(1);
-        GameManager.instance.NextLevel("MouseLabrynth_Win");
-        GameManager.instance.restartScore(0);
+        GameManager.instance.winPanel.SetActive(true);
+        GameManager.instance.gameUI.SetActive(false);
+        //GameManager.instance.restartScore(0);
         Timer_Controller.instancetimer.StopTimer();
+        Time.timeScale = 0f;
     }
 }
